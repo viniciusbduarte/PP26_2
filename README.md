@@ -1,0 +1,1 @@
+Repositório dedicado a cadeira de Padrões de Projetos 2026.2.
