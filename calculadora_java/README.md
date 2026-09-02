@@ -7,7 +7,7 @@
 
 ## 1) Versão do compilador Java utilizada
 
-`javac 21.0.12` (OpenJDK 21 / Eclipse Temurin 21, ou versão equivalente 17+)
+`javac 26.0.2.1` (JDK 26)
 
 Comando de compilação utilizado:
 
@@ -37,7 +37,7 @@ Comando utilizado para compilar e executar o Cliente usando a biblioteca:
 
 ```bash
 javac -encoding UTF-8 -cp Calculadora_202411250040.jar Cliente_202411250040.java
-java -cp .;Calculadora_202411250040.jar Cliente_202411250040
+java -cp ".;Calculadora_202411250040.jar" Cliente_202411250040
 ```
 
 ## 5) Descrição de cada método da classe `Calculadora_202411250040`
@@ -64,5 +64,5 @@ java -cp .;Calculadora_202411250040.jar Cliente_202411250040
    ```
 4. Execute:
    ```bash
-   java -cp .;Calculadora_202411250040.jar Cliente_202411250040
+   java -cp ".;Calculadora_202411250040.jar" Cliente_202411250040
    ```
