@@ -1,7 +1,11 @@
 # Contador de texto
 
-Aplicação Java que conta espaços, letras `a`/`A` e pontos usando o padrão
+Aplicação Java que conta espaços, letras `a`/`A`/`c`/`C` e pontos usando o padrão
 **Chain of Responsibility**.
+
+## Diagrama 
+
+![Diagrama](diagram.png)
 
 ## Como funciona
 
