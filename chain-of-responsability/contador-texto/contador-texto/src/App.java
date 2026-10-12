@@ -12,24 +12,40 @@ import java.util.Arrays;
  */
 public class App {
     /**
-     * Monta a cadeia de handlers, lê a entrada e exibe as estatísticas.
+     * Inicia a aplicação.
      *
      * @param args texto entre aspas ou a opção {@code --file} seguida do caminho
      */
     public static void main(String[] args) {
+        runApplication(args);
+    }
+
+    /**
+     * Executa a aplicação e mantém o tratamento de entrada separado do ponto
+     * de entrada do programa.
+     *
+     * @param args argumentos recebidos pelo processo
+     */
+    private static void runApplication(String[] args) {
         if (args.length == 0) {
             System.err.println("Uso: java App \"texto\" | java App --file caminho.txt");
             return;
         }
 
-        final String text;
         try {
-            text = readInput(args);
+            String text = readInput(args);
+            printStatistics(text);
         } catch (IOException | IllegalArgumentException exception) {
-            System.err.println("Não foi possível processar a entrada: " + exception.getMessage());
-            return;
+            printInputError(exception);
         }
+    }
 
+    /**
+     * Conta o texto usando a cadeia de responsabilidade e imprime o resultado.
+     *
+     * @param text texto a ser contado
+     */
+    private static void printStatistics(String text) {
         ContadorLetraA contadorA = new ContadorLetraA();
         ContadorLetraC contadorC = new ContadorLetraC();
         ContadorEspaco contadorEspaco = new ContadorEspaco();
@@ -46,6 +62,15 @@ public class App {
         System.out.println("Letras C: " + contadorC.getCount());
         System.out.println("Espaços: " + contadorEspaco.getCount());
         System.out.println("Pontos: " + contadorPonto.getCount());
+    }
+
+    /**
+     * Exibe uma mensagem padronizada para falhas na entrada.
+     *
+     * @param exception exceção que descreve a falha
+     */
+    private static void printInputError(Exception exception) {
+        System.err.println("Não foi possível processar a entrada: " + exception.getMessage());
     }
 
     /**
