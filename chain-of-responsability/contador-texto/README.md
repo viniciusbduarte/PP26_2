@@ -1,6 +1,7 @@
 # Contador de texto
 
 Aplicação Java que conta espaços, letras `a`/`A`/`c`/`C` e pontos usando o padrão
+
 **Chain of Responsibility**.
 
 ## Diagrama 
@@ -12,12 +13,10 @@ Aplicação Java que conta espaços, letras `a`/`A`/`c`/`C` e pontos usando o pa
 Cada tipo de caractere é tratado por um elo diferente:
 
 ```text
-ContadorLetraA -> ContadorEspaco -> ContadorPonto
+ContadorLetraA -> ContadorLetraC -> ContadorEspaco -> ContadorPonto
 ```
 
-Cada handler incrementa seu próprio contador quando reconhece o caractere.
-Quando não reconhece, encaminha a solicitação ao próximo elo. Ao final do
-processamento, `App` exibe a listagem consolidada.
+Cada handler incrementa seu próprio contador quando reconhece o caractere. Quando não reconhece, encaminha a solicitação ao próximo elo. Ao final do processamento, `App` exibe a listagem consolidada.
 
 ## Execução pelo Shell
 
@@ -45,10 +44,10 @@ Exemplo de saída:
 ```text
 Contagem final:
 Letras A: 4
+Letras C: 2
 Espaços: 3
 Pontos: 2
 ```
 
-Os comentários Javadoc dos fontes descrevem a responsabilidade de cada
-handler e podem ser usados para gerar documentação com `javadoc`.
+Os comentários Javadoc dos fontes descrevem a responsabilidade de cada handler e podem ser usados para gerar documentação com `javadoc`.
  
